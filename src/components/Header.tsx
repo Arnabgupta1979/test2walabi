@@ -9,10 +9,10 @@ const Header = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Services', href: '/#services' },
+    { name: 'Services', href: '#services', anchor: true },
     { name: 'Academy', href: '/academy' },
-    { name: 'Resources', href: '/#resources' },
-    { name: 'About', href: '/#about' },
+    { name: 'Resources', href: '#resources', anchor: true },
+    { name: 'About', href: '#about', anchor: true },
   ];
 
   const isActive = (href: string) => {
@@ -32,17 +32,27 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  isActive(item.href)
-                    ? 'text-blue-600 border-b-2 border-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
-                }`}
-              >
-                {item.name}
-              </Link>
+              item.anchor ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-medium transition-colors duration-200 text-gray-700 hover:text-blue-600"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    isActive(item.href)
+                      ? 'text-blue-600 border-b-2 border-blue-600'
+                      : 'text-gray-700 hover:text-blue-600'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
             <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors duration-200">
               Book Intake
@@ -64,18 +74,29 @@ const Header = () => {
         <div className="md:hidden bg-white border-t border-gray-200">
           <div className="px-4 pt-2 pb-3 space-y-1">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                  isActive(item.href)
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                }`}
-              >
-                {item.name}
-              </Link>
+              item.anchor ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                    isActive(item.href)
+                      ? 'text-blue-600 bg-blue-50'
+                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
             <button className="w-full mt-3 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors duration-200">
               Book Intake
