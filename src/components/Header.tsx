@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sprout } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import logo from '../../logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,8 +26,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <Sprout className="h-8 w-8 text-green-600" />
-            <span className="text-2xl font-bold text-gray-900">WALABI</span>
+            <img src={logo} alt="WALABI" className="h-8 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

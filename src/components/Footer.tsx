@@ -1,5 +1,6 @@
 import React from 'react';
-import { Sprout, Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
+import logo from '../../logo.png';
 
 const Footer = () => {
   return (
@@ -9,8 +10,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <Sprout className="h-8 w-8 text-green-500" />
-              <span className="text-2xl font-bold">WALABI</span>
+              <img src={logo} alt="WALABI" className="h-8 w-auto" />
             </div>
             <p className="text-gray-300 text-sm mb-4">
               Making digital pay off in agri-food through business informatics and smart technology alignment.
